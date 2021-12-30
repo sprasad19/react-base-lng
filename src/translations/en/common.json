@@ -1,0 +1,13 @@
+{
+  "common": {
+    "appName": "Asset Management",
+    "appDescription": "Asset Management Web Application"
+  },
+  "pages":{
+    "home":"Home",
+    "homeDescription":"Home Description",
+    "about":"About",
+    "aboutDescription":"About Description"
+
+  }
+}

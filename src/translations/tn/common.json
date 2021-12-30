@@ -1,0 +1,14 @@
+{
+    "common": {
+      "appName": "சொத்து மேலாண்மை",
+      "appDescription": "சொத்து மேலாண்மை வலை பயன்பாடு"
+    },
+    "pages":{
+      "home":"வீடு",
+      "homeDescription":"முகப்பு விளக்கம்",
+      "about":"பற்றி",
+      "aboutDescription":"விளக்கம் பற்றி"
+  
+    }
+  }
+  
