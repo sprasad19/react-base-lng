@@ -15,11 +15,22 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import NavBar from './TopBarNav';
+import NavBar from "./TopBarNav";
+import { makeStyles } from "@material-ui/core";
 
 const drawerWidth = 240;
+const useStyles = makeStyles({
+  paper: {
+    background: "blue !important",
+    color: "white !important",
+  },
+  icons: {
+    color: "white !important",
+  },
+});
 
 function SideBar(props) {
+  const styles = useStyles();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -34,8 +45,12 @@ function SideBar(props) {
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            <ListItemIcon style={{ fill: styles.icons }}>
+              {index % 2 === 0 ? (
+                <InboxIcon color="inherit" />
+              ) : (
+                <MailIcon color="inherit"  />
+              )}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -45,8 +60,8 @@ function SideBar(props) {
       <List>
         {["All mail", "Trash", "Spam"].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            <ListItemIcon style={{ fill: styles.icons }}>
+              {index % 2 === 0 ? <InboxIcon color="inherit"  /> : <MailIcon color="inherit"/>}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -61,7 +76,7 @@ function SideBar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-     <NavBar />
+      <NavBar />
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -76,6 +91,7 @@ function SideBar(props) {
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
+          classes={{ paper: styles.paper }}
           sx={{
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
@@ -88,6 +104,7 @@ function SideBar(props) {
         </Drawer>
         <Drawer
           variant="permanent"
+          classes={{ paper: styles.paper }}
           sx={{
             display: { xs: "none", sm: "block" },
             "& .MuiDrawer-paper": {
