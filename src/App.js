@@ -11,6 +11,8 @@ import { connect } from "react-redux";
 import Translate from "./components/Translate";
 import About from "./container/About/About";
 import ModalManager from "./components/Modals/ModalManager";
+import NavBar from './components/UI/TopBarNav';
+import SideBar from './components/UI/SideBarNav';
 function App(props) {
   return (
     <div className="App">
@@ -20,12 +22,16 @@ function App(props) {
       >
         <meta name="description" content={props.t("common.appDescription")} />
       </Helmet>
+      <SideBar />
+      <div>
       <Routes>
         <Route path="/" exact element={<Home {...props} />} />
         <Route path="/about" exact element={<About {...props} />} />
         <Route path="*" element={<Error errorTitle="404" {...props} />} />
       </Routes>
       <ModalManager />
+      </div>
+      
     </div>
   );
 }
