@@ -35,6 +35,7 @@ ReactDOM.render(
           <I18nextProvider i18n={i18next}>
             <ErrorBoundary>
               <App />
+              
             </ErrorBoundary>
           </I18nextProvider>
         </BrowserRouter>

@@ -10,9 +10,7 @@ import { makeSelectDevice } from "./redux/redux/device/selectors";
 import { connect } from "react-redux";
 import Translate from "./components/Translate";
 import About from "./container/About/About";
-import ModalManager from "./components/Modals/ModalManager";
-import NavBar from './components/UI/TopBarNav';
-import SideBar from './components/UI/SideBarNav';
+// import ModalManager from "./components/Modals/ModalManager";
 function App(props) {
   return (
     <div className="App">
@@ -22,16 +20,28 @@ function App(props) {
       >
         <meta name="description" content={props.t("common.appDescription")} />
       </Helmet>
-      <SideBar />
-      <div>
-      <Routes>
-        <Route path="/" exact element={<Home {...props} />} />
-        <Route path="/about" exact element={<About {...props} />} />
-        <Route path="*" element={<Error errorTitle="404" {...props} />} />
-      </Routes>
-      <ModalManager />
-      </div>
-      
+      {/* <CssBaseline /> */}
+{/* 
+      <Box sx={{ display: "flex" }}>
+        <NavBar />
+        <SideBar />
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            width: { sm: `calc(100% - ${drawerWidth}px)` },
+          }}
+        >
+          <Toolbar /> */}
+          <Routes>
+            <Route path="/" exact element={<Home {...props} />} />
+            <Route path="/about" exact element={<About {...props} />} />
+            <Route path="*" element={<Error errorTitle="404" {...props} />} />
+          </Routes>
+        {/* </Box>
+      </Box> */}
+      {/* <ModalManager /> */}
     </div>
   );
 }

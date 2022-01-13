@@ -2,13 +2,14 @@ import React from "react";
 import Rhelmet from "../../components/Helmet/Rhelmet";
 import { setLanguage } from "../../redux/redux/global/action";
 import { openModalAction } from "../../redux/redux/modals/actions";
+import  Box  from '@mui/material/Box';
 
 export default function Home(props) {
   const changeLang = (value) => {
     props.dispatch(setLanguage(value));
   };
   return (
-    <div>
+    <Box>
       <Rhelmet
         title={props.t("pages.home")}
         description={props.t("pages.homeDescription")}
@@ -38,6 +39,6 @@ export default function Home(props) {
       >
         Open Modal
       </button>
-    </div>
+    </Box>
   );
 }
